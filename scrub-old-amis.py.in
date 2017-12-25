@@ -28,8 +28,9 @@ for region in boto3.session.Session().get_available_regions("ec2"):
         
         os_rel, ami_rel = match.groups()
         amis.append((
-            region, image["ImageId"], float(os_rel),
-            int(ami_rel) if ami_rel else 0))
+            region, image["ImageId"],
+            image["BlockDeviceMappings"][0]["Ebs"]["SnapshotId"],
+            float(os_rel), int(ami_rel) if ami_rel else 0))
 
 
 # Determine the set to discard based region and version
@@ -43,10 +44,10 @@ discards = []
 # that a region only has old images. In that case we want to preserve the old
 # images till we can publish new ones manually so users can still launch
 # Alpine systems without interruption.
-candidates = sorted(amis, key=lambda i: (i[0], (i[1], i[2])), reverse=True)
+candidates = sorted(amis, key=lambda i: (i[0], (i[1], i[3])), reverse=True)
 
 for ami in candidates:
-    (region, ami), version = ami[:2], ami[2:]
+    (region, ami, snapshot), version = ami[:3], ami[3:]
 
     if version > current:
         print("{} has AMI '{}' newer than current".format(region, ami))
@@ -55,13 +56,17 @@ for ami in candidates:
         ok_regions.add(region)
         continue
     elif version < current and region in ok_regions:
-        discards.append((region, ami))
+        discards.append((region, ami, snapshot))
     else:
         print("Not discarding old image in {}".format(region))
         continue
 
 
 # Scrub the old ones
-for region, image in discards:
-    print("Removing image '{}' in {}".format(image, region))
-    boto3.client("ec2", region_name=region).deregister_image(ImageId=image)
+for region, image, snapshot in discards:
+    print("Removing image '{}', snapshot '{}' in {}".format(
+        image, snapshot, region))
+
+    ec2 = boto3.client("ec2", region_name=region)
+    ec2.deregister_image(ImageId=image)
+    ec2.delete_snapshot(SnapshotId=snapshot)
