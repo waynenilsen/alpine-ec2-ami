@@ -17,10 +17,10 @@ build/convert:
 	@echo "json.dump(yaml.load(open(sys.argv[1])), sys.stdout, indent=4, separators=(',', ': '))" >> build/convert
 	@chmod +x build/convert
 
-scrub-old-amis.py: scrub-old-amis.py.in
+%.py: %.py.in
 	sed "s|@PYTHON@|#!`pwd`/.py3/bin/python|" $< > $@
 	chmod +x $@
 
 .PHONY: clean
 clean:
-	rm -rf build .py3 scrub-old-amis.py
+	rm -rf build .py3 scrub-old-amis.py gen-readme.py

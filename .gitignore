@@ -2,3 +2,4 @@
 /.py3/
 /variables.json
 /scrub-old-amis.py
+/gen-readme.py
