@@ -1,0 +1,21 @@
+Alpine-3.7-Hardened-EC2:
+  description: "Alpine Linux 3.7 Release with Hardened Kernel and EC2 Optimizations"
+  alpine-release: 3.7
+  kernel-flavor: hardened
+  ami-release-date: "2017-12-25 03:02:00"
+  region-identifiers:
+    #us-east-1: ami-XXXXXXXX
+    #us-east-2: ami-XXXXXXXX
+    #us-west-1: ami-XXXXXXXX
+    us-west-2: ami-032b877b
+    #ca-central-1: ami-XXXXXXXX
+    #eu-central-1: ami-XXXXXXXX
+    #eu-west-1: ami-XXXXXXXX
+    #eu-west-2: ami-XXXXXXXX
+    #eu-west-3: ami-XXXXXXXX
+    #ap-northeast-1: ami-XXXXXXXX
+    #ap-northeast-2: ami-XXXXXXXX
+    #ap-southeast-1: ami-XXXXXXXX
+    #ap-southeast-2: ami-XXXXXXXX
+    #ap-south-1: ami-XXXXXXXX
+    #sa-east-1: ami-XXXXXXXX

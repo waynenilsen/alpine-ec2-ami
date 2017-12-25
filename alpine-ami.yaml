@@ -1,0 +1,57 @@
+variables:
+  security_group: ""
+  subnet: ""
+  destination_regions: ""
+  alpine_release: "3.7"
+
+  # Don't override this without a good reason and if you do just make sure it
+  # gets passed all the way through to the make_ami script
+  volume_name: "/dev/xvdf"
+
+builders:
+  - type: "amazon-ebssurrogate"
+
+    # Image is built inside a custom VPC so let Packer use the existing
+    # resources
+    security_group_id: "{{user `security_group`}}"
+    subnet_id: "{{user `subnet`}}"
+
+    # Input Instance Setting
+    instance_type: "t2.micro"
+    launch_block_device_mappings:
+      - volume_type: "gp2"
+        device_name: "{{user `volume_name`}}"
+        delete_on_termination: false
+        volume_size: 5
+
+    # Output AMI Settings
+    ena_support: true
+    ami_name: "Alpine-{{user `alpine_release`}}-Hardened-EC2"
+    ami_description: "Alpine Linux {{user `alpine_release`}} Release with Hardened Kernel and EC2 Optimizations"
+    ami_groups:
+      - "all"
+    ami_virtualization_type: "hvm"
+    ami_regions: "{{user `destination_regions`}}"
+    ami_root_device:
+      source_device_name: "{{user `volume_name`}}"
+      device_name: "/dev/xvda"
+      delete_on_termination: true
+      volume_size: 5
+      volume_type: "gp2"
+
+    # Use the most recent Amazon Linux AMI as our base
+    ssh_username: "ec2-user"
+    source_ami_filter:
+      filters:
+        virtualization-type: "hvm"
+        root-device-type: "ebs"
+        architecture: "x86_64"
+        name: "amzn-ami-hvm-*-x86_64-gp2"
+      owners: 
+        - "137112412989"
+      most_recent: true
+
+provisioners:
+  - type: "shell"
+    script: "make_ami.sh"
+    execute_command: "sudo sh -c '{{ .Vars }} {{ .Path }} {{user `volume_name`}}'"
