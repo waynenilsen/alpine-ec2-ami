@@ -1,7 +1,16 @@
 variables:
   security_group: ""
   subnet: ""
-  destination_regions: ""
+
+  # Treat this similar to a ABUILD pkgrel variable and increment with every
+  # release. Packer will notice an exiting AMI at build start and fail unless
+  # it is rmoved. To prevent a period of time where no Alpine AMI exists,
+  # create a new variant. Old AMIs should be pruned at some point.
+  ami_release: "1"
+
+  # Overriding this requires validating that the installation script still
+  # works as expected. It probably does but stuff changes between major
+  # version.
   alpine_release: "3.7"
 
   # Don't override this without a good reason and if you do just make sure it
@@ -21,17 +30,32 @@ builders:
     launch_block_device_mappings:
       - volume_type: "gp2"
         device_name: "{{user `volume_name`}}"
-        delete_on_termination: false
+        delete_on_termination: true
         volume_size: 5
 
     # Output AMI Settings
     ena_support: true
-    ami_name: "Alpine-{{user `alpine_release`}}-Hardened-EC2"
-    ami_description: "Alpine Linux {{user `alpine_release`}} Release with Hardened Kernel and EC2 Optimizations"
+    ami_name: "Alpine-{{user `alpine_release`}}-r{{user `ami_release`}}-Hardened-EC2"
+    ami_description: "Alpine Linux {{user `alpine_release`}}-r{{user `ami_release`}} Release with Hardened Kernel and EC2 Optimizations"
     ami_groups:
       - "all"
     ami_virtualization_type: "hvm"
-    ami_regions: "{{user `destination_regions`}}"
+    ami_regions:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - ca-central-1
+      - eu-central-1
+      - eu-west-1
+      - eu-west-2
+#      - eu-west-3
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-south-1
+      - sa-east-1
     ami_root_device:
       source_device_name: "{{user `volume_name`}}"
       device_name: "/dev/xvda"
