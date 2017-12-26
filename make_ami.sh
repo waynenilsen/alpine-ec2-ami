@@ -225,7 +225,7 @@ enable_services() {
 
 	rc_add "$target" default sshd chronyd networking tiny-ec2-bootstrap
 	rc_add "$target" sysinit devfs dmesg mdev hwdrivers
-	rc_add "$target" boot modules hwclock swap hostname sysctl bootmisc syslog
+	rc_add "$target" boot modules hwclock swap hostname sysctl bootmisc syslog acpid
 	rc_add "$target" shutdown killprocs savecache mount-ro
 }
 
