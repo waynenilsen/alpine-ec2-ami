@@ -179,8 +179,13 @@ setup_extlinux() {
 	# Enable ext4 because the root device is formatted ext4
 	#
 	# Shorten timeout because EC2 has no way to interact with instance console
+    #
+    # ttyS0 is the target for EC2s "Get System Log" feature whereas tty0 is the
+    # target for EC2s "Get Instance Screenshot" feature. Enabling the serial
+    # port early in extlinux gives the most complete output in the system log.
 	sed -Ei -e "s|^[# ]*(root)=.*|\1=LABEL=/|" \
-		-e "s|^[# ]*(default_kernel_opts)=.*|\1=|" \
+		-e "s|^[# ]*(default_kernel_opts)=.*|\1=\"console=ttyS0 console=tty0\"|" \
+		-e "s|^[# ]*(serial_port)=.*|\1=ttyS0|" \
 		-e "s|^[# ]*(modules)=.*|\1=sd-mod,usb-storage,ext4|" \
 		-e "s|^[# ]*(default)=.*|\1=hardened|" \
 		-e "s|^[# ]*(timeout)=.*|\1=1|" \
