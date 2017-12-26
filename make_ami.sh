@@ -151,6 +151,11 @@ install_core_packages() {
 		tzdata
 
 	chroot "$target" apk --no-cache add --no-scripts syslinux
+
+    # Disable starting getty for physical ttys because they're all inaccessible
+    # anyhow. With this configuration boot messages will still display in the
+    # EC2 console.
+    sed -Ei '/^tty\d/s/^/#/' /etc/inittab
 }
 
 create_initfs() {
