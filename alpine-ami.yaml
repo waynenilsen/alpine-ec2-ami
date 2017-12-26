@@ -6,7 +6,7 @@ variables:
   # release. Packer will notice an exiting AMI at build start and fail unless
   # it is rmoved. To prevent a period of time where no Alpine AMI exists,
   # create a new variant. Old AMIs should be pruned at some point.
-  ami_release: "1"
+  ami_release: "2"
 
   # Overriding this requires validating that the installation script still
   # works as expected. It probably does but stuff changes between major

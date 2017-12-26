@@ -25,20 +25,20 @@ will be updated as new regions are made available.
 
 | Alpine Version | Region Code | AMI ID |
 | -------------- | ----------- | ------ |
-| 3.7 | ca-central-1 | [ami-ba3a80de](https://ca-central-1.console.aws.amazon.com/ec2/home#launchAmi=ami-ba3a80de) |
-| 3.7 | us-west-1 | [ami-971f19f7](https://us-west-1.console.aws.amazon.com/ec2/home#launchAmi=ami-971f19f7) |
-| 3.7 | eu-west-2 | [ami-d8b2abbc](https://eu-west-2.console.aws.amazon.com/ec2/home#launchAmi=ami-d8b2abbc) |
-| 3.7 | sa-east-1 | [ami-e233738e](https://sa-east-1.console.aws.amazon.com/ec2/home#launchAmi=ami-e233738e) |
-| 3.7 | eu-west-1 | [ami-5589062c](https://eu-west-1.console.aws.amazon.com/ec2/home#launchAmi=ami-5589062c) |
-| 3.7 | ap-south-1 | [ami-77a8e218](https://ap-south-1.console.aws.amazon.com/ec2/home#launchAmi=ami-77a8e218) |
-| 3.7 | ap-southeast-1 | [ami-4fc8a133](https://ap-southeast-1.console.aws.amazon.com/ec2/home#launchAmi=ami-4fc8a133) |
-| 3.7 | ap-southeast-2 | [ami-afdb2bcd](https://ap-southeast-2.console.aws.amazon.com/ec2/home#launchAmi=ami-afdb2bcd) |
-| 3.7 | ap-northeast-1 | [ami-0cd5416a](https://ap-northeast-1.console.aws.amazon.com/ec2/home#launchAmi=ami-0cd5416a) |
-| 3.7 | ap-northeast-2 | [ami-909c3dfe](https://ap-northeast-2.console.aws.amazon.com/ec2/home#launchAmi=ami-909c3dfe) |
-| 3.7 | eu-central-1 | [ami-5cb92e33](https://eu-central-1.console.aws.amazon.com/ec2/home#launchAmi=ami-5cb92e33) |
-| 3.7 | us-east-1 | [ami-c3dc9ab9](https://us-east-1.console.aws.amazon.com/ec2/home#launchAmi=ami-c3dc9ab9) |
-| 3.7 | us-west-2 | [ami-6ac26d12](https://us-west-2.console.aws.amazon.com/ec2/home#launchAmi=ami-6ac26d12) |
-| 3.7 | us-east-2 | [ami-fc8aa299](https://us-east-2.console.aws.amazon.com/ec2/home#launchAmi=ami-fc8aa299) |
+| 3.7 | ap-southeast-2 | [ami-7628d814](https://ap-southeast-2.console.aws.amazon.com/ec2/home#launchAmi=ami-7628d814) |
+| 3.7 | sa-east-1 | [ami-ae5414c2](https://sa-east-1.console.aws.amazon.com/ec2/home#launchAmi=ami-ae5414c2) |
+| 3.7 | us-west-2 | [ami-e474db9c](https://us-west-2.console.aws.amazon.com/ec2/home#launchAmi=ami-e474db9c) |
+| 3.7 | eu-central-1 | [ami-a96ff8c6](https://eu-central-1.console.aws.amazon.com/ec2/home#launchAmi=ami-a96ff8c6) |
+| 3.7 | eu-west-2 | [ami-9ea2bbfa](https://eu-west-2.console.aws.amazon.com/ec2/home#launchAmi=ami-9ea2bbfa) |
+| 3.7 | ap-south-1 | [ami-29c28846](https://ap-south-1.console.aws.amazon.com/ec2/home#launchAmi=ami-29c28846) |
+| 3.7 | eu-west-1 | [ami-66de501f](https://eu-west-1.console.aws.amazon.com/ec2/home#launchAmi=ami-66de501f) |
+| 3.7 | us-east-1 | [ami-976020ed](https://us-east-1.console.aws.amazon.com/ec2/home#launchAmi=ami-976020ed) |
+| 3.7 | us-west-1 | [ami-1c393f7c](https://us-west-1.console.aws.amazon.com/ec2/home#launchAmi=ami-1c393f7c) |
+| 3.7 | ap-northeast-2 | [ami-b96ccdd7](https://ap-northeast-2.console.aws.amazon.com/ec2/home#launchAmi=ami-b96ccdd7) |
+| 3.7 | ap-northeast-1 | [ami-361c8850](https://ap-northeast-1.console.aws.amazon.com/ec2/home#launchAmi=ami-361c8850) |
+| 3.7 | us-east-2 | [ami-c487afa1](https://us-east-2.console.aws.amazon.com/ec2/home#launchAmi=ami-c487afa1) |
+| 3.7 | ap-southeast-1 | [ami-25a8c059](https://ap-southeast-1.console.aws.amazon.com/ec2/home#launchAmi=ami-25a8c059) |
+| 3.7 | ca-central-1 | [ami-293d874d](https://ca-central-1.console.aws.amazon.com/ec2/home#launchAmi=ami-293d874d) |
 
 ## Caveats
 

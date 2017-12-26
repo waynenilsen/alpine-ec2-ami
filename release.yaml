@@ -4,18 +4,18 @@ Alpine-3.7-Hardened-EC2:
   kernel-flavor: hardened
   ami-release-date: "2017-12-25 03:02:00"
   region-identifiers:
-    ap-northeast-1: ami-0cd5416a
-    ap-northeast-2: ami-909c3dfe
-    ap-south-1: ami-77a8e218
-    ap-southeast-1: ami-4fc8a133
-    ap-southeast-2: ami-afdb2bcd
-    ca-central-1: ami-ba3a80de
-    eu-central-1: ami-5cb92e33
-    eu-west-1: ami-5589062c
-    eu-west-2: ami-d8b2abbc
     #eu-west-3: ami-XXXXXXXX
-    sa-east-1: ami-e233738e
-    us-east-1: ami-c3dc9ab9
-    us-east-2: ami-fc8aa299
-    us-west-1: ami-971f19f7
-    us-west-2: ami-6ac26d12
+    ap-northeast-1: ami-361c8850
+    ap-northeast-2: ami-b96ccdd7
+    ap-south-1: ami-29c28846
+    ap-southeast-1: ami-25a8c059
+    ap-southeast-2: ami-7628d814
+    ca-central-1: ami-293d874d
+    eu-central-1: ami-a96ff8c6
+    eu-west-1: ami-66de501f
+    eu-west-2: ami-9ea2bbfa
+    sa-east-1: ami-ae5414c2
+    us-east-1: ami-976020ed
+    us-east-2: ami-c487afa1
+    us-west-1: ami-1c393f7c
+    us-west-2: ami-e474db9c
